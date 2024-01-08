@@ -52,6 +52,6 @@
 
 | Name | Description |
 |------|-------------|
-| <a name="output_cloudfront_url"></a> [cloudfront\_url](#output\_cloudfront\_url) | Website URL (HTTPS) |
-| <a name="output_website_url"></a> [website\_url](#output\_website\_url) | n/a |
+| <a name="output_cloudfront_url"></a> [cloudfront\_url](#output\_cloudfront\_url) | Cloudfront URL |
+| <a name="output_website_url"></a> [website\_url](#output\_website\_url) | Website URL (HTTPS) |
 <!-- END_TF_DOCS -->
