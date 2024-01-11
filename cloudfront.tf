@@ -13,20 +13,10 @@ resource "aws_cloudfront_distribution" "this" {
   default_root_object = "index.html"
 
   origin {
-    domain_name              = aws_s3_bucket.website.bucket_domain_name # aws_s3_bucket_website_configuration.hosting.website_endpoint
-    origin_id                = aws_s3_bucket.website.id                 #bucket_regional_domain_name
+    domain_name              = aws_s3_bucket.website.bucket_domain_name
+    origin_id                = aws_s3_bucket.website.id
     origin_access_control_id = aws_cloudfront_origin_access_control.this.id
 
-    # custom_origin_config {
-    #   http_port                = 80
-    #   https_port               = 443
-    #   origin_keepalive_timeout = 5
-    #   origin_protocol_policy   = "http-only"
-    #   origin_read_timeout      = 30
-    #   origin_ssl_protocols = [
-    #     "TLSv1.2",
-    #   ]
-    # }
   }
 
   viewer_certificate {
@@ -49,7 +39,7 @@ resource "aws_cloudfront_distribution" "this" {
     compress               = true
     allowed_methods        = ["GET", "HEAD", "OPTIONS"]
     cached_methods         = ["GET", "HEAD"]
-    target_origin_id       = aws_s3_bucket.website.id # bucket_regional_domain_name
+    target_origin_id       = aws_s3_bucket.website.id
   }
 
   tags = var.tags
