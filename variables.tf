@@ -15,6 +15,11 @@ variable "tags" {
   }
 }
 
+variable "allow_origins" {
+  description = "List of origins for the API gateway"
+  default     = []
+}
+
 locals {
   content_types = {
     ".css" : "text/css",

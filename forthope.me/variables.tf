@@ -14,3 +14,8 @@ variable "bucket_versioning" {
   default     = "Disabled"
   description = "Versioning for S3 bucket"
 }
+
+variable "allow_origins" {
+  description = "List of origins for the API gateway"
+  default     = ["https://forthope.me", "https://www.forthope.me"]
+}
