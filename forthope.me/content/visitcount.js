@@ -1,7 +1,5 @@
 // GET API REQUEST
 async function get_visitors() {
-    // call post api request function
-    // await post_visitor();
     try {
       let response = await fetch(
         "https://11q3uvuks7.execute-api.us-east-1.amazonaws.com/default/terraform_lambda_func", // API Gateway URL
@@ -10,9 +8,7 @@ async function get_visitors() {
         }
       );
       let data = await response.json();
-      document.getElementById("visitors").innerHTML = data["count"];
-      console.log(data);
-      return data;
+      document.getElementById("visitors").innerHTML = data?.count;
     } catch (err) {
       console.error(err);
     }
