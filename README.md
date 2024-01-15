@@ -1,3 +1,6 @@
+## Architecture
+![alt text](https://raw.githubusercontent.com/sergiochoo/aws-s3-static-website/main/misc/architecture.avif)
+
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
 
