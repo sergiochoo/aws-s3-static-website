@@ -1,0 +1,25 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:*",
+                "cloudfront:*",
+                "route53:*",
+                "acm:*",
+                "logs:*",
+                "iam:GetRole",
+                "iam:GetPolicy",
+                "iam:ListRolePolicies",
+                "iam:GetPolicyVersion",
+                "iam:ListAttachedRolePolicies",
+                "apigateway:*",
+                "dynamodb:*",
+                "lambda:*",
+                "lambda:GetFunction"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
