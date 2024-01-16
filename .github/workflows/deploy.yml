@@ -12,7 +12,7 @@ jobs:
 
     defaults:
       run:
-        working-directory: ${{ secrets.SITE_NAME }}
+        working-directory: ${{ vars.SITE_NAME }}
 
     steps:
     - name: Checkout
