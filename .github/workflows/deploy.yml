@@ -1,0 +1,49 @@
+# .github/workflows/deploy.yaml
+
+on:
+  push:
+    branches:
+    - 'main'
+
+jobs:
+  Terraform:
+    name: 'Deploy terraform'
+    runs-on: ubuntu-22.04
+
+    defaults:
+      run:
+        working-directory: ./website
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Setup Terraform
+      uses: hashicorp/setup-terraform@v1
+      with:
+        terraform_version: 0.14
+
+    - name: Terraform Init
+      run: terraform init
+
+    - name: Terraform Validate
+      run: terraform validate -no-color
+
+    - name: Terraform Apply
+      run: terraform apply -auto-approve -no-color
+      env:
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+
+  Invalidate-Cloudfront-Distribution:
+    name: 'Invalidate CloudFront distribution cache'
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Invalidate CloudFront
+        uses: chetan/invalidate-cloudfront-action@v2
+        env:
+          DISTRIBUTION: ${{ secrets.DISTRIBUTION_ID }}
+          PATHS: "/*"
+          AWS_REGION: "us-east-1"
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
