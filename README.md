@@ -3,7 +3,7 @@
 
 [![.github/workflows/deploy.yml](https://github.com/sergiochoo/aws-s3-static-website/actions/workflows/deploy.yml/badge.svg?branch=main)](https://github.com/sergiochoo/aws-s3-static-website/actions/workflows/deploy.yml)
 
-# CI/CD with GitHub actions setup:
+### CI/CD with GitHub actions setup:
 # Replace `123456789012` with your actual AWS Account ID
 # Export your AWS account id as a shell variable for later use
 ```
