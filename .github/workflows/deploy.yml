@@ -22,10 +22,7 @@ jobs:
     - name: Setup Terraform
       uses: hashicorp/setup-terraform@v1
       with:
-        terraform_version: 0.14
-
-    - name: Where are we?
-      run: pwd && ls -la
+        terraform_version: 1.4.6
 
     - name: Terraform Init
       run: terraform init -backend-config="region=${AWS_REGION}" -backend-config="bucket=terraform-state-${ACCOUNT_ID}"
