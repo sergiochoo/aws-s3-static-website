@@ -10,6 +10,7 @@ variable "domain_name" {
 }
 
 variable "tags" {
+  type = any
   default = {
     managedBy = "Terraform"
   }
@@ -18,6 +19,7 @@ variable "tags" {
 variable "allow_origins" {
   description = "List of origins for the API gateway"
   default     = []
+  type        = list(any)
 }
 
 locals {

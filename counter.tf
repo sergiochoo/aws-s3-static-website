@@ -54,12 +54,12 @@ resource "aws_iam_role_policy_attachment" "attach_iam_policy_to_iam_role" {
   policy_arn = aws_iam_policy.iam_policy_for_lambda.arn
 }
 
-# Archive Python code into a zip file
-data "archive_file" "zip_the_python_code" {
-  type        = "zip"
-  source_dir  = "${path.module}/misc/lambda/"
-  output_path = "${path.module}/misc/lambda/lambda_function.zip"
-}
+# # Archive Python code into a zip file
+# data "archive_file" "zip_the_python_code" {
+#   type        = "zip"
+#   source_dir  = "${path.module}/misc/lambda/"
+#   output_path = "${path.module}/misc/lambda/lambda_function.zip"
+# }
 
 # Lambda Function
 resource "aws_lambda_function" "terraform_lambda_func" {
@@ -88,7 +88,6 @@ resource "aws_cloudwatch_log_group" "api_gw" {
 resource "aws_apigatewayv2_api" "lambda" {
   name          = "visitor_count_CRC"
   protocol_type = "HTTP"
-  description   = "Visitor count for Cloud Resume Challenge"
   cors_configuration {
     allow_origins = var.allow_origins
   }
