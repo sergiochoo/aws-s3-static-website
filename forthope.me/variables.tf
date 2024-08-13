@@ -18,4 +18,5 @@ variable "bucket_versioning" {
 variable "allow_origins" {
   description = "List of origins for the API gateway"
   default     = ["https://forthope.me", "https://www.forthope.me"]
+  type        = list(any)
 }

@@ -4,8 +4,10 @@ repos:
   hooks:
     - id: terraform_fmt
     - id: terraform_docs
-    # - id: terraform_checkov
-    # - id: terraform_trivy
+    - id: terraform_validate
+    - id: terraform_tflint
+    #- id: terraform_checkov
+    #- id: terraform_trivy
 - repo: https://github.com/pre-commit/pre-commit-hooks
   rev: v4.6.0
   hooks:
