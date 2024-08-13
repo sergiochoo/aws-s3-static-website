@@ -37,5 +37,5 @@ terraform.rc
 terraform.tfstate
 terraform.tfstate.backup
 .DS_Store
-.pre-commit-config.yaml
+
 .content
